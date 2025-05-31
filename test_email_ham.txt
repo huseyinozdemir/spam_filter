@@ -1,0 +1,19 @@
+From: ahmet@example.com
+To: mehmet@example.com
+Subject: Toplantı Hatırlatması
+Date: Mon, 15 Jan 2024 10:30:00 +0300
+Content-Type: text/plain; charset=UTF-8
+
+Merhaba Mehmet,
+
+Yarın saat 14:00'te konferans salonunda yapılacak olan proje toplantısını hatırlatmak istiyorum.
+
+Toplantıda aşağıdaki konuları ele alacağız:
+- Proje ilerlemesi
+- Önümüzdeki hafta planları
+- Bütçe durumu
+
+Katılım için teşekkürler.
+
+İyi çalışmalar,
+Ahmet 
