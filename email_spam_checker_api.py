@@ -93,7 +93,7 @@ class APISpamDetector:
 class EmailSpamProcessorConfig:
     """Configuration for email processor"""
 
-    def __init__(self, api_url: str = "http://127.0.0.1:5050/predict", api_timeout: int = 30):
+    def __init__(self, api_url: str = "http://127.0.0.1:8000/predict", api_timeout: int = 30):
         self.api_url = api_url
         self.api_timeout = api_timeout
 
