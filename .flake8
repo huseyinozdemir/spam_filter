@@ -5,3 +5,5 @@ exclude =
     spam_dataset.csv,
     spam_model.pkl,
     vectorizer.pkl
+
+max-line-length = 125

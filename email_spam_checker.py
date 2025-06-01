@@ -7,6 +7,7 @@ import re
 import string
 from typing import Protocol
 
+
 class TextCleaner(Protocol):
     def clean(self, text: str) -> str: ...
 
@@ -23,7 +24,7 @@ class EmailWriter(Protocol):
     def write(self, msg: email.message.EmailMessage) -> None: ...
 
 
-class SpamTextCleaner:    
+class SpamTextCleaner:
     def clean(self, text: str) -> str:
         text = text.lower()
         text = re.sub(r'https?://\S+', '[LINK]', text)
@@ -32,28 +33,28 @@ class SpamTextCleaner:
         return text
 
 
-class SpamModelManager:    
+class SpamModelManager:
     def __init__(self, model_path: str, vectorizer_path: str):
         self.model = joblib.load(model_path)
         self.vectorizer = joblib.load(vectorizer_path)
-    
+
     def predict(self, text: str) -> int:
         vectorized = self.vectorizer.transform([text])
         return self.model.predict(vectorized)[0]
 
 
-class StdinEmailReader:    
+class StdinEmailReader:
     def read(self) -> email.message.EmailMessage:
         raw_email = sys.stdin.read()
         return email.message_from_string(raw_email, policy=default)
 
 
-class StdoutEmailWriter:    
+class StdoutEmailWriter:
     def write(self, msg: email.message.EmailMessage) -> None:
         sys.stdout.write(msg.as_string())
 
 
-class EmailBodyExtractor:    
+class EmailBodyExtractor:
     def extract(self, msg: email.message.EmailMessage) -> str:
         body = ""
         if msg.is_multipart():
@@ -65,7 +66,7 @@ class EmailBodyExtractor:
         return body
 
 
-class SpamSubjectModifier:    
+class SpamSubjectModifier:
     def modify_if_spam(self, msg: email.message.EmailMessage, is_spam: bool) -> None:
         if is_spam:
             subject = msg["Subject"] or ""
@@ -74,7 +75,7 @@ class SpamSubjectModifier:
 
 
 # DIP - High level module depends on abstractions
-class EmailSpamProcessor:    
+class EmailSpamProcessor:
     def __init__(
         self,
         email_reader: EmailReader,
@@ -88,31 +89,31 @@ class EmailSpamProcessor:
         self.model_manager = model_manager
         self.body_extractor = EmailBodyExtractor()
         self.subject_modifier = SpamSubjectModifier()
-    
+
     def process(self) -> None:
         """OCP - Open for extension, closed for modification"""
         # Read email
         msg = self.email_reader.read()
-        
+
         # Extract body
         body = self.body_extractor.extract(msg)
-        
+
         # Clean text
         cleaned_text = self.text_cleaner.clean(body)
-        
+
         # Predict
         prediction = self.model_manager.predict(cleaned_text)
         is_spam = (prediction == 1)
-        
+
         # Modify subject if spam
         self.subject_modifier.modify_if_spam(msg, is_spam)
-        
+
         # Write email
         self.email_writer.write(msg)
 
 
 # Factory for dependency injection
-class EmailProcessorFactory:    
+class EmailProcessorFactory:
     @staticmethod
     def create_default_processor() -> EmailSpamProcessor:
         return EmailSpamProcessor(
@@ -130,4 +131,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main() 
+    main()

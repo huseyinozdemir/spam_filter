@@ -3,7 +3,7 @@ from pydantic import BaseModel
 import joblib
 import re
 import string
-from typing import Protocol, Optional
+from typing import Protocol
 
 
 class TextCleaner(Protocol):
@@ -18,7 +18,7 @@ class ResponseFormatter(Protocol):
     def format_prediction(self, prediction: int, label: str) -> dict: ...
 
 
-class SpamTextCleaner:    
+class SpamTextCleaner:
     def clean(self, text: str) -> str:
         text = text.lower()
         text = re.sub(r'https?://\S+', '[LINK]', text)
@@ -27,11 +27,11 @@ class SpamTextCleaner:
         return text
 
 
-class SpamModelManager:    
+class SpamModelManager:
     def __init__(self, model_path: str, vectorizer_path: str):
         self.model = joblib.load(model_path)
         self.vectorizer = joblib.load(vectorizer_path)
-    
+
     def predict(self, text: str) -> tuple[int, str]:
         vectorized = self.vectorizer.transform([text])
         prediction = self.model.predict(vectorized)[0]
@@ -39,7 +39,7 @@ class SpamModelManager:
         return int(prediction), label
 
 
-class StandardResponseFormatter:    
+class StandardResponseFormatter:
     def format_prediction(self, prediction: int, label: str) -> dict:
         return {
             "prediction": prediction,
@@ -47,7 +47,7 @@ class StandardResponseFormatter:
         }
 
 
-class DetailedResponseFormatter:    
+class DetailedResponseFormatter:
     def format_prediction(self, prediction: int, label: str) -> dict:
         return {
             "prediction": prediction,
@@ -71,7 +71,7 @@ class PredictionResponse(BaseModel):
 # DIP - High-level service depends on abstractions
 class SpamPredictionService:
     """High-level business logic"""
-    
+
     def __init__(
         self,
         text_cleaner: TextCleaner,
@@ -81,15 +81,15 @@ class SpamPredictionService:
         self.text_cleaner = text_cleaner
         self.model_manager = model_manager
         self.response_formatter = response_formatter
-    
+
     def predict_spam(self, text: str) -> dict:
         """OCP - Open for extension, closed for modification"""
         # Clean text
         cleaned_text = self.text_cleaner.clean(text)
-        
+
         # Make prediction
         prediction, label = self.model_manager.predict(cleaned_text)
-        
+
         # Format response
         return self.response_formatter.format_prediction(prediction, label)
 
@@ -97,7 +97,7 @@ class SpamPredictionService:
 # Dependency injection configuration
 class AppConfig:
     """Configuration for dependency injection"""
-    
+
     def __init__(
         self,
         model_path: str = "spam_model.pkl",
@@ -110,17 +110,17 @@ class AppConfig:
 
 
 # Factory pattern
-class ServiceFactory:    
+class ServiceFactory:
     @staticmethod
     def create_spam_service(config: AppConfig) -> SpamPredictionService:
         text_cleaner = SpamTextCleaner()
         model_manager = SpamModelManager(config.model_path, config.vectorizer_path)
-        
+
         if config.use_detailed_response:
             response_formatter = DetailedResponseFormatter()
         else:
             response_formatter = StandardResponseFormatter()
-        
+
         return SpamPredictionService(text_cleaner, model_manager, response_formatter)
 
 
@@ -157,4 +157,4 @@ def predict_detailed(
 ) -> dict:
     config = AppConfig(use_detailed_response=True)
     service = ServiceFactory.create_spam_service(config)
-    return service.predict_spam(request.text) 
+    return service.predict_spam(request.text)

@@ -5,8 +5,7 @@ import re
 import string
 import joblib
 import pandas as pd
-from typing import Protocol, Tuple, Dict, Any, Optional
-from abc import ABC, abstractmethod
+from typing import Protocol, Tuple, Dict, Any
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, classification_report
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -38,15 +37,15 @@ class ModelSaver(Protocol):
     def save_model(self, model: Any, vectorizer: Any) -> None: ...
 
 
-class CSVDataLoader:    
+class CSVDataLoader:
     def __init__(self, file_path: str):
         self.file_path = file_path
-    
+
     def load_data(self) -> pd.DataFrame:
         return pd.read_csv(self.file_path)
 
 
-class MockDataLoader:    
+class MockDataLoader:
     def load_data(self) -> pd.DataFrame:
         data = {
             "text": [
@@ -62,7 +61,7 @@ class MockDataLoader:
         return pd.DataFrame(data)
 
 
-class SpamTextCleaner:    
+class SpamTextCleaner:
     def clean(self, text: str) -> str:
         # Convert to lowercase
         text = text.lower()
@@ -75,7 +74,7 @@ class SpamTextCleaner:
         return text
 
 
-class AdvancedTextCleaner:    
+class AdvancedTextCleaner:
     def clean(self, text: str) -> str:
         # Basic cleaning
         text = text.lower()
@@ -89,25 +88,25 @@ class AdvancedTextCleaner:
         return text
 
 
-class TfidfFeatureExtractor:    
+class TfidfFeatureExtractor:
     def __init__(self, ngram_range: Tuple[int, int] = (1, 2)):
         self.vectorizer = TfidfVectorizer(ngram_range=ngram_range)
-    
+
     def fit_transform(self, texts: list) -> Any:
         return self.vectorizer.fit_transform(texts)
-    
+
     def transform(self, texts: list) -> Any:
         return self.vectorizer.transform(texts)
-    
+
     def get_vectorizer(self):
         return self.vectorizer
 
 
-class LogisticRegressionTrainer:    
+class LogisticRegressionTrainer:
     def __init__(self, class_weight: str = 'balanced', random_state: int = 42):
         self.class_weight = class_weight
         self.random_state = random_state
-    
+
     def train(self, X, y) -> LogisticRegression:
         model = LogisticRegression(
             class_weight=self.class_weight,
@@ -117,14 +116,14 @@ class LogisticRegressionTrainer:
         return model
 
 
-class SpamModelEvaluator:    
+class SpamModelEvaluator:
     def evaluate(self, model: Any, X_test, y_test) -> Dict[str, float]:
         y_pred = model.predict(X_test)
         accuracy = accuracy_score(y_test, y_pred)
-        
+
         # Detailed classification report
         report = classification_report(y_test, y_pred, output_dict=True)
-        
+
         return {
             "accuracy": accuracy,
             "precision": report['weighted avg']['precision'],
@@ -133,11 +132,11 @@ class SpamModelEvaluator:
         }
 
 
-class JoblibModelSaver:    
+class JoblibModelSaver:
     def __init__(self, model_path: str = "spam_model.pkl", vectorizer_path: str = "vectorizer.pkl"):
         self.model_path = model_path
         self.vectorizer_path = vectorizer_path
-    
+
     def save_model(self, model: Any, vectorizer: Any) -> None:
         joblib.dump(model, self.model_path)
         joblib.dump(vectorizer, self.vectorizer_path)
@@ -146,7 +145,7 @@ class JoblibModelSaver:
 
 
 # Configuration for training pipeline
-class TrainingConfig:    
+class TrainingConfig:
     def __init__(
         self,
         data_file: str = "spam_dataset.csv",
@@ -170,7 +169,7 @@ class TrainingConfig:
 
 class SpamTrainingPipeline:
     """High-level training pipeline orchestrator"""
-    
+
     def __init__(
         self,
         data_loader: DataLoader,
@@ -188,63 +187,63 @@ class SpamTrainingPipeline:
         self.model_evaluator = model_evaluator
         self.model_saver = model_saver
         self.config = config
-    
+
     def run_training(self) -> Dict[str, float]:
         print("🚀 Starting spam detection model training...")
-        
+
         # Load data
         print("📂 Loading data...")
         df = self.data_loader.load_data()
         print(f"📊 Loaded {len(df)} samples")
-        
+
         # Clean text
         print("🧹 Cleaning text...")
         df['clean_text'] = df['text'].apply(self.text_cleaner.clean)
-        
+
         # Extract features
         print("🔧 Extracting features...")
         X = self.feature_extractor.fit_transform(df['clean_text'].tolist())
         y = df['label']
-        
+
         # Split data
         print("✂️ Splitting data...")
         X_train, X_test, y_train, y_test = train_test_split(
-            X, y, 
-            test_size=self.config.test_size, 
+            X, y,
+            test_size=self.config.test_size,
             random_state=self.config.random_state
         )
-        
+
         # Train model
         print("🎓 Training model...")
         model = self.model_trainer.train(X_train, y_train)
-        
+
         # Evaluate model
         print("📈 Evaluating model...")
         metrics = self.model_evaluator.evaluate(model, X_test, y_test)
-        
+
         # Save model
         print("💾 Saving model...")
         vectorizer = self.feature_extractor.get_vectorizer()
         self.model_saver.save_model(model, vectorizer)
-        
+
         # Test prediction
         self._test_prediction(model, vectorizer)
-        
+
         print("✅ Training completed!")
         return metrics
-    
+
     def _test_prediction(self, model, vectorizer):
         test_text = "Congratulations! You have won a prize. Click here"
         cleaned_test = self.text_cleaner.clean(test_text)
         vectorized_test = vectorizer.transform([cleaned_test])
         prediction = model.predict(vectorized_test)
-        
-        print(f"\n🧪 Test prediction:")
+
+        print("\n🧪 Test prediction:")
         print(f"Text: {test_text}")
         print(f"Prediction: {'Spam' if prediction[0] == 1 else 'Ham'}")
 
 
-class TrainingPipelineFactory:    
+class TrainingPipelineFactory:
     @staticmethod
     def create_training_pipeline(config: TrainingConfig) -> SpamTrainingPipeline:
         # Data loader
@@ -252,25 +251,25 @@ class TrainingPipelineFactory:
             data_loader = MockDataLoader()
         else:
             data_loader = CSVDataLoader(config.data_file)
-        
+
         # Text cleaner
         if config.use_advanced_cleaning:
             text_cleaner = AdvancedTextCleaner()
         else:
             text_cleaner = SpamTextCleaner()
-        
+
         # Feature extractor
         feature_extractor = TfidfFeatureExtractor(config.ngram_range)
-        
+
         # Model trainer
         model_trainer = LogisticRegressionTrainer()
-        
+
         # Model evaluator
         model_evaluator = SpamModelEvaluator()
-        
+
         # Model saver
         model_saver = JoblibModelSaver(config.model_path, config.vectorizer_path)
-        
+
         return SpamTrainingPipeline(
             data_loader=data_loader,
             text_cleaner=text_cleaner,
@@ -285,20 +284,20 @@ class TrainingPipelineFactory:
 def main():
     # Default configuration
     config = TrainingConfig()
-    
+
     # Alternative configurations:
     # config = TrainingConfig(use_mock_data=True)  # For testing without CSV
     # config = TrainingConfig(use_advanced_cleaning=True)  # Advanced text cleaning
-    
+
     # Create and run training pipeline
     pipeline = TrainingPipelineFactory.create_training_pipeline(config)
     metrics = pipeline.run_training()
-    
+
     # Print results
-    print(f"\n📊 Training Results:")
+    print("\n📊 Training Results:")
     for metric, value in metrics.items():
         print(f"{metric.capitalize()}: {value:.4f}")
 
 
 if __name__ == "__main__":
-    main() 
+    main()
