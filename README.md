@@ -41,17 +41,17 @@ This project implements a **machine learning-based spam detection system** follo
 ## 📁 Project Structure
 
 ```
-spam_detection/
+spam_filter/
 ├── 🧠 ML Core
-│   ├── spam_training.py          # SOLID training pipeline
+│   ├── spam_training.py         # SOLID training pipeline
 │   ├── spam_model.pkl           # Trained model
 │   └── vectorizer.pkl           # Text vectorizer
 ├── 🌐 API Services
 │   ├── spam_api_fast.py         # FastAPI implementation
 │   ├── spam_api_flask.py        # Flask implementation
 ├── 📧 Email Processing
-│   ├── email_spam_checker.py  # Direct processing
-│   └── email_spam_checker_api.py                  # API-based processing
+│   ├── email_spam_checker.py       # Direct processing
+│   └── email_spam_checker_api.py   # API-based processing
 ├── 🧪 Testing
 │   ├── test_email_ham.txt       # Normal email samples
 │   ├── test_email_spam.txt      # Spam email samples
@@ -66,10 +66,11 @@ spam_detection/
 ```bash
 # Clone the repository
 git clone https://github.com/huseyinozdemir/spam_filter
-cd spam_detection
+cd spam_filter
 
 # Created .venv
 python3.12 -m venv .venv
+. .venv/bin/activate
 
 # Install dependencies
 pip install -r requirements.txt
