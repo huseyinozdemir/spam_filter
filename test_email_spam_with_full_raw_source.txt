@@ -1,0 +1,126 @@
+Return-Path: <94505-201316-487424-20565-huseyin=husonet.com@mail.kpfamilysafe.shop>
+Delivered-To: huseyin@husonet.com
+Received: from pythontr.com
+	by pythontr.com with LMTP
+	id pLMkOUaVPWjsQR4Atv61cA
+	(envelope-from <94505-201316-487424-20565-huseyin=husonet.com@mail.kpfamilysafe.shop>)
+	for <huseyin@husonet.com>; Mon, 02 Jun 2025 14:12:54 +0200
+Authentication-Results: pythontr.com;
+	dkim=pass (2048-bit key; unprotected) header.d=kpfamilysafe.shop header.i=EthanCantrell@kpfamilysafe.shop header.a=rsa-sha1 header.s=k1 header.b=cQePOn0A;
+	dkim-atps=neutral
+Received: by pythontr.com (Postfix, from userid 1001)
+	id E3AD21184505; Mon,  2 Jun 2025 14:12:54 +0200 (CEST)
+X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-25) on pythontr.com
+X-Spam-Level: ***
+X-Spam-Status: No, score=3.4 required=5.0 tests=BAYES_50,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,HTML_FONT_LOW_CONTRAST,HTML_MESSAGE,
+	LONGLN_LOW_CONTRAST,NORDNS_LOW_CONTRAST,RCVD_IN_BL_SPAMCOP_NET,
+	RCVD_IN_DNSWL_BLOCKED,RCVD_IN_VALIDITY_CERTIFIED,RCVD_IN_VALIDITY_RPBL,
+	RCVD_IN_VALIDITY_SAFE,RCVD_IN_ZEN_BLOCKED_OPENDNS,RDNS_NONE,
+	STY_INVIS_DIRECT,URIBL_ABUSE_SURBL,URIBL_BLOCKED,
+	URIBL_DBL_BLOCKED_OPENDNS autolearn=no autolearn_force=no version=4.0.1
+Received: from johnny.kpfamilysafe.shop (unknown [103.29.183.63])
+	by pythontr.com (Postfix) with ESMTP id 3A871118448C
+	for <huseyin@husonet.com>; Mon,  2 Jun 2025 14:12:54 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha1; c=relaxed/relaxed; s=k1; d=kpfamilysafe.shop;
+ h=Mime-Version:Content-Type:Date:From:Reply-To:Subject:To:Message-ID; i=EthanCantrell@kpfamilysafe.shop;
+ bh=5LA61Xm1EzhsQOcw+eE4RTQPAj8=;
+ b=cQePOn0A/L4J1/0jx58YzI4aDD/WsomAXm3XyBdPIHkSocUGBAtn7HTee9xsSs8jxaRORRYZBN5A
+   4hnMWq9Y3EjZr2QFKuF/mIdghzNtl3KWD6ZyG5kcp3vBmMoGpJNzaNDGW6I2C0IN9jvphoYWVLno
+   x08UjeAtFIWFv349e/zkaUhq1TzG9PzffeWhcqMxnnl8kNNPHGk/vJqmBbaJ8/98pwTVNPlPCKTb
+   MdM/diFSaNnI/E6wT+jcFMhh/34e560tiUPKU8oxGoI3+bKmmxUQK+VXrjKkM8o7oOyoOqGaTXHt
+   MGxNnFnYPAusd0fNe5dr16xXun4lwA9CiPfmdw==
+DomainKey-Signature: a=rsa-sha1; c=nofws; q=dns; s=k1; d=kpfamilysafe.shop;
+ b=CY8tVzq9aMJQNzbWWbqa0ZYxgwYAlfFrjbIRKuIv4YiGE9YV2c+0ExOoaQDllFg6hAavmCBBbdyM
+   62RIlOTINKmqDvpnBsBH4TQgIMoEgOCsk6VnfsQPBx0YljpIcI4Tj4bMOyM2Hudcc+iItA2qVd+u
+   ixw5hGi9i2sXLj6ZoIcAD+uYtYRUntojw22xQ4nWDJq8EbuveE7OJgWXHhqjRTin7KNCB587eb3M
+   YzC6NAkN358uhYifkk6Xl70IhI22BrNElhbezdMgbIAUootIrdwLTZqWLEx+W/7S+g2FpUtVtX9+
+   F1r4y1WvK8Hp0uJiPOK2gNy4E/mPSk6wudn0NA==;
+Mime-Version: 1.0
+Content-Type: multipart/alternative; boundary="32b94fc4f4cae01aae10233b5e37659a_31264_77000"
+Date: Mon, 2 Jun 2025 07:09:37 -0500
+From: "Frank Wallace" <EthanCantrell@kpfamilysafe.shop>
+Reply-To: "Frank Wallace" <EthanCantrell@kpfamilysafe.shop>
+Subject: Upgrade Your Life, One Night At A Time
+To: <huseyin@husonet.com>
+Message-ID: <g6vfunp1qxf3x2h1-thx4iqvh3pt3xv11-31264-77000@kpfamilysafe.shop>
+
+--32b94fc4f4cae01aae10233b5e37659a_31264_77000
+Content-Type: text/plain;
+Content-Transfer-Encoding: 8bit
+
+Upgrade Your Life, One Night At A Time
+
+http://kpfamilysafe.shop/x1sj08PVeJyhl40Oeh1oDGOkN7BsL6S2wlbzzdpR7EfYs1-t
+
+http://kpfamilysafe.shop/e26ytY3rhtKUEVagaOxGL5Cqxnos8OwdW-7ykshRvgWN-Sk1
+
+ddle and Late Devonian rocks, known as Ilfracombe beds and Morte Slates. These include sandstone and limestone, which have been quarried near Aisholt. At Great Holwell, south of Aisholt, is the only limestone cave in the Devonian limestone of North Devon and West Somerset. The lower fringes around the hills are composed of younger New Red Sandstone rocks of the Triassic period. These rocks were laid down in a shallow sea and often contain irregular masses or veins of gypsum, which was mined on the foreshore at Watchet.
+
+Several areas have outcrops of slates. Younger rocks of the Jurassic period can be found between St Audries and Kilve. This area falls within the Blue Anchor to Lilstock Site of Special Scientific Interest (SSSI) and is considered to be of international geological importance.
+
+Kilve has the remains of a red-brick retort built in 1924 after the shale in the cliffs was found to be rich in oil. Along this coast, the cliffs are layered with compressed strata of oil-bearing shale and blue, yellow and brown Lias embedded with fossils. The Shaline Company was founded in 1924 to exploit these strata but was unable to raise sufficient capital. The company's retort house is thought to be the first structure erected here for the conversion of shale to oil and is all that remains of the anticipated Somerset oil boom.
+
+At Blue Anchor the coloured alabaster found in the cliffs gave rise to the name of the colour "Watchet Blue". The village has the only updraught brick kiln known to have survive
+
+--32b94fc4f4cae01aae10233b5e37659a_31264_77000
+Content-Type: text/html;
+Content-Transfer-Encoding: 8bit
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Newsletter</title>
+</head>
+<body><a href="http://kpfamilysafe.shop/hneKAi-SpICjCIrKRT1xvnXLncxERmUgsKcsVn1Q9ixQyrOI"><img src="http://kpfamilysafe.shop/51b185cf05d5610e66.jpg" /><img height="1" src="http://www.kpfamilysafe.shop/aBY95AN5E0ICrID42tPNe3s1RruHKs_Uj5vGCbspHUfefMI_" width="1" /></a>
+<center>
+<div style="font-size:22px;font-family:arial;width:600px;"><a href="http://kpfamilysafe.shop/x1sj08PVeJyhl40Oeh1oDGOkN7BsL6S2wlbzzdpR7EfYs1-t" style="font-size:25px;color:#0000FF;" target="blank"><b>Upgrade Your Life, One Night At A Time</b></a><br />
+<br />
+<a href="http://kpfamilysafe.shop/x1sj08PVeJyhl40Oeh1oDGOkN7BsL6S2wlbzzdpR7EfYs1-t" http:="" microsoft.com="" rel="sponsored" target="blank"><img http:="" microsoft.com="" src="http://kpfamilysafe.shop/74a312cd84b5ca4925.jpg" /></a><br />
+<br />
+&nbsp;
+<div style="color:#FFFFFF;font-size:8px;visibility:hidden;">ddle and Late Devonian rocks, known as Ilfracombe beds and Morte Slates. These include sandstone and limestone, which have been quarried near Aisholt. At Great Holwell, south of Ai</div>
+<br />
+<br />
+<br />
+&nbsp;
+<div style="color:#FFFFFF;font-size:8px;visibility:hidden;">sholt, is the only limestone cave in the Devonian limestone of North Devon and West Somerset. The lower fringes around the hills are composed of younger New Red Sandstone rocks of the Triassi</div>
+&nbsp;
+
+<div style="color:#FFFFFF;font-size:8px;visibility:hidden;">c period. These rocks were laid down in a shallow sea and often contain irregular masses or veins of gypsum, which was mined on the foreshore at Watchet. Several areas have outcrops of slates. Younger rocks of the Jurassic pe</div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<a href="http://kpfamilysafe.shop/DqsOZlJ3cXUE1UA2TiFsJb70UncxhIEQ3Jt0MeYTIR0AFFV1" http:="" microsoft.com="" target="blank"><img http:="" microsoft.com="" src="http://kpfamilysafe.shop/b4a6ecb2a7a9bbe7a3.jpg" /></a><br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+&nbsp;
+<div style="color:#FFFFFF;font-size:8px;visibility:hidden;">riod can be found between St Audries and Kilve. This area falls within the Blue Anchor to Lilstock Site of Special Scientific Interest (SSSI) and is considered to be of international geological importance. Kilve has the remains of a red-brick retort built in 1924 after the shale in the cliffs was found to be rich in oil. Along this coast, the cliffs are layered with compressed strata of oil-bearing shale and blue, yellow and brown Lias embedded with fossils. The Shaline Company was founded in 1924 to exploit these strata but was unable to raise sufficient capital. The company&#39;s retort house is thought to be the first structure erected here for the conversion of shale to oil and is all that remains of the anticipated Somerset oil boom. At Blue Anchor the coloured alabaster found in the cliffs gave rise to the name of the colour &quot;Watchet Blue&quot;. The village has the only updraught brick kiln known to have survive</
+ div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<a href="http://kpfamilysafe.shop/e26ytY3rhtKUEVagaOxGL5Cqxnos8OwdW-7ykshRvgWN-Sk1" http:="" microsoft.com="" target="blank"><img http:="" microsoft.com="" src="http://kpfamilysafe.shop/cf0b51ef4545a8cb18.jpg" /></a><br />
+<br />
+<br />
+&nbsp;</div>
+</center>
+</body>
+</html>
+
+--32b94fc4f4cae01aae10233b5e37659a_31264_77000--

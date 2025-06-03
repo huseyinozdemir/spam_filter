@@ -47,7 +47,8 @@ if __name__ == "__main__":
     # check test files
     test_files = [
         ("test_email_ham.txt", "Normal Email Test"),
-        ("test_email_spam.txt", "Spam Email Test")
+        ("test_email_spam.txt", "Spam Email Test"),
+        ("test_email_spam_with_full_raw_source.txt", "Spam Email Test with Full Raw Source"),
     ]
 
     for email_file, description in test_files:

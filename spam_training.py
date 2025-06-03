@@ -90,7 +90,9 @@ class AdvancedTextCleaner:
 
 class TfidfFeatureExtractor:
     def __init__(self, ngram_range: Tuple[int, int] = (1, 2)):
-        self.vectorizer = TfidfVectorizer(ngram_range=ngram_range)
+        # min_df: Let's eliminate very rare words (2 instead of 1, adjust according to your sample number)
+        # max_df: Let's eliminate very common words
+        self.vectorizer = TfidfVectorizer(ngram_range=ngram_range, min_df=2, max_df=0.8)
 
     def fit_transform(self, texts: list) -> Any:
         return self.vectorizer.fit_transform(texts)
